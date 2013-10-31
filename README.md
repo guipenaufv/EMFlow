@@ -16,9 +16,9 @@ To run, need set up the amount of memory available (line 77) and tiled block siz
 
 About the Script
 ----------------
-.creat folder tiles to store temporary tiles, the tiles folder is necessary for the program operation
-.creat folder tempos to store the running time
-.Run the program for several instances and stores the runtime
+* .creat folder tiles to store temporary tiles, the tiles folder is necessary for the program operation
+* .creat folder tempos to store the running time
+* .Run the program for several instances and stores the runtime
 
 Output
 ------
