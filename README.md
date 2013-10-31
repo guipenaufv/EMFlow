@@ -23,3 +23,9 @@ About the Script
 Output
 ------
 As a result it is given a file named flow.hgt containing the accumulated flow with 2 bytes.
+
+Bibliography
+------------
+This program is described by the publication
+
+Thiago L. Gomes, Salles V. G. Magalhães, Marcus V. A. Andrade, W. Randolph Franklin, and Guilherme C. Pena. 2012. Computing the drainage network on huge grid terrains. In Proceedings of the 1st ACM SIGSPATIAL International Workshop on Analytics for Big Geospatial Data (BigSpatial '12). ACM, New York, NY, USA, 53-60. DOI=10.1145/2447481.2447488 http://doi.acm.org/10.1145/2447481.2447488 ([Download](http://dx.doi.org/10.1145/2447481.2447488))
