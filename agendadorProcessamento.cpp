@@ -207,7 +207,7 @@ void AgendadorProcessamento::agendarProcessamento(queue<Point> filaProcCorrente[
 			vector<vector<pair<int,Point> > > ilhasGeradas;
 			vector<int> mapaPosicaoIlhas(numeroComponentes+1,-1);
 			vector<int> tamanhoComponente(numeroComponentes+1,-1);
-			for(int i=0;i<componentes.tamanhoComponentes.size();i++)
+			for(unsigned int i=0;i<componentes.tamanhoComponentes.size();i++)
 				tamanhoComponente[componentes.tamanhoComponentes[i].second] = componentes.tamanhoComponentes[i].first;
 
 			//Vamos separar as ilhas geradass e guarda-las no vetor "ilhasGeradas"...

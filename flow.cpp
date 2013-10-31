@@ -82,12 +82,12 @@ public:
 	       
                linha =  new int *[nlinhas];
                
-	           for(int i =0;i<nlinhas;i++) {
+	           for(unsigned int i =0;i<nlinhas;i++) {
 		           linha[i] = new int[ncolumns];
                }
                coluna =  new int *[ncolunas];
                
-	           for(int i =0;i<ncolunas;i++) {
+	           for(unsigned int i =0;i<ncolunas;i++) {
 		           coluna[i] = new int[nrows];
                }
                
@@ -95,7 +95,7 @@ public:
                
     }
         
-    void set(int x,int y,int valor){
+    void set(unsigned int x, unsigned int y, int valor){
           if(x%tamanho_bloco== 0 )
                linha[x/tamanho_bloco][y] = valor;
           else if (x == nrows -1 ){
@@ -110,7 +110,7 @@ public:
      }
      
      
-     void set_Somar(int x,int y,int valor){
+     void set_Somar(unsigned int x, unsigned int y, int valor){
           if(x%tamanho_bloco== 0 )
                linha[x/tamanho_bloco][y] = linha[x/tamanho_bloco][y] + valor;
           else if (x == nrows -1 ){
@@ -127,14 +127,14 @@ public:
      
     void set_All(int valor){
          
-                for(int i =0;i<nlinhas;i++) {
-                    for(int j = 0;j< ncolumns;j++)
+                for(unsigned int i =0;i<nlinhas;i++) {
+                    for(unsigned int j = 0;j< ncolumns;j++)
 		                linha[i][j] = valor;
                }
               
                
-	           for(int i =0;i<ncolunas;i++) {
-		            for(int j = 0;j< nrows;j++)
+	           for(unsigned int i =0;i<ncolunas;i++) {
+		            for(unsigned int j = 0;j< nrows;j++)
 		                coluna[i][j] = valor;
                }
                
@@ -142,7 +142,7 @@ public:
      }
         
      
-      int get(int x,int y){
+      int get(unsigned int x, unsigned int y){
           if(x%tamanho_bloco== 0 )
                return linha[x/tamanho_bloco][y] ;
           else if (x == nrows -1 ){
@@ -289,15 +289,15 @@ void CacheAwareAccumulation(tiledMatrix<unsigned char> &dirs,const int nrows) {
 	// marcar vizinhos 
 	
     
-   for(int i = 0;i < Borda_inputDegree.nlinhas;i++)
-          for(int j = 0;j < Borda_inputDegree.ncolumns;j++)
+   for(unsigned int i = 0;i < Borda_inputDegree.nlinhas;i++)
+          for(unsigned int j = 0;j < Borda_inputDegree.ncolumns;j++)
                 if(Borda_linha_dest.linha[i][j] < 0 || 	Borda_linha_dest.linha[i][j] >= nrows || Borda_coluna_dest.linha[i][j] < 0 || 	Borda_coluna_dest.linha[i][j] >= nrows )
                      continue;
                 else
                      Borda_inputDegree.set_Somar(Borda_linha_dest.linha[i][j],Borda_coluna_dest.linha[i][j],1);
    
-   for(int i = 0;i < Borda_inputDegree.ncolunas;i++)
-          for(int j = 0;j < Borda_inputDegree.nrows - 1;j++){
+   for(unsigned int i = 0;i < Borda_inputDegree.ncolunas;i++)
+          for(unsigned int j = 0;j < Borda_inputDegree.nrows - 1;j++){
                 if(j%Borda_inputDegree.tamanho_bloco == 0)
                      continue;
                 if(Borda_linha_dest.coluna[i][j] < 0 || Borda_linha_dest.coluna[i][j] >= nrows || Borda_coluna_dest.coluna[i][j] < 0 || 	Borda_coluna_dest.coluna[i][j] >= nrows )
@@ -307,8 +307,8 @@ void CacheAwareAccumulation(tiledMatrix<unsigned char> &dirs,const int nrows) {
           }
 		
 	// calcular
-     for(int i = 0;i < Borda_inputDegree.nlinhas;i++)
-          for(int j = 0;j < Borda_inputDegree.ncolumns;j++){
+     for(unsigned int i = 0;i < Borda_inputDegree.nlinhas;i++)
+          for(unsigned int j = 0;j < Borda_inputDegree.ncolumns;j++){
                 pii point((i*Borda_inputDegree.tamanho_bloco<nrows)?(i*Borda_inputDegree.tamanho_bloco):(nrows -1),j);
                 while(Borda_inputDegree.get(point.first,point.second)==0) {
                                    Borda_inputDegree.set( point.first , point.second, 255); //Mark this point as processed	
@@ -326,8 +326,8 @@ void CacheAwareAccumulation(tiledMatrix<unsigned char> &dirs,const int nrows) {
            }
 	
 	
-	 for(int i = 0;i < Borda_inputDegree.ncolunas;i++)
-          for(int j = 0;j < Borda_inputDegree.nrows -1;j++){
+	 for(unsigned int i = 0;i < Borda_inputDegree.ncolunas;i++)
+          for(unsigned int j = 0;j < Borda_inputDegree.nrows -1;j++){
                 if(j%Borda_inputDegree.tamanho_bloco == 0)
                      continue;
                 pii point(j,(i*Borda_inputDegree.tamanho_bloco<nrows)?(i*Borda_inputDegree.tamanho_bloco):(nrows -1));
